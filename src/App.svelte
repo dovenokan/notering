@@ -3,11 +3,25 @@
 		new Audio('https://res.cloudinary.com/odcloud/video/upload/v1625930644/notal.mp3_ycwskc.mp3').play()
 		document.querySelector("textarea").value = localStorage.getItem("note")
 	}
+	function clear() {
+		document.querySelector("textarea").value = ""
+		localStorage.setItem("note", "")
+	}
+	function download() {
+		var data = document.querySelector("textarea").value.toString()
+		var a = document.querySelector("a#save");
+		var file = new Blob([data], {type: 'text/plain'});
+		a.href = URL.createObjectURL(file);
+		a.download = new Date().valueOf()+"_noter_notes.txt";
+	}
 </script>
 
 <main>
 	<nav>
-		<li>Noter</li>
+		<li on:click={clear} class="func clear">Clear</li>
+		<li><h1>Noter</h1></li>
+		<!-- svelte-ignore a11y-invalid-attribute -->
+		<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
 	</nav>
 	<textarea name="" id="" 
 	on:change={(event) => localStorage.setItem("note", event.target.value)}
@@ -18,17 +32,32 @@
 <style>
 	main {
 		text-align: center;
-		font-size: 5vh;
+		font-size: 4.2vh;
 	}
 
 	li{
 		list-style: none;
 		margin: 15px;
-		color: blue;
+		color: rgb(19, 19, 143);
+		font-weight: 500;
+	}
+
+	a, a:hover, a:visited{
+		text-decoration: none;
+		color: inherit;
+	}	
+
+
+	.clear{
+		color: rgb(119, 18, 18);
+	}
+
+	.download{
+		color: rgb(6, 134, 25);
 	}
 
 	nav{
-		background-color: rgba(6, 17, 75, 0.98);
+		background-color: rgba(4, 10, 41, 0.98);
 		height: 8vh;
 		display: flex;
 		justify-content: center;
@@ -43,6 +72,7 @@
 		background-color: rgb(11 4 37);
 		color: whitesmoke;
 		font-size: 3vh;
+		font-weight: 400;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	}
 </style>

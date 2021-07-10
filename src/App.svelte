@@ -1,19 +1,17 @@
 <script>
-	export let name;
 	window.onload = function() {
 		new Audio('https://res.cloudinary.com/odcloud/video/upload/v1625930644/notal.mp3_ycwskc.mp3').play()
+		document.querySelector("textarea").value = localStorage.getItem("note")
 	}
-
 </script>
 
 <main>
 	<nav>
-		<li>La</li>
-		<li>La</li>
-		<li>La</li>
-		<li>La</li>
+		<li>Noter</li>
 	</nav>
-	<textarea name="" id="" ></textarea>
+	<textarea name="" id="" 
+	on:change={(event) => localStorage.setItem("note", event.target.value)}
+	></textarea>
 </main>
 
 
@@ -26,6 +24,7 @@
 	li{
 		list-style: none;
 		margin: 15px;
+		color: blue;
 	}
 
 	nav{

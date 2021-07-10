@@ -19,7 +19,7 @@
 <main>
 	<nav>
 		<li on:click={clear} class="func clear">Clear</li>
-		<li><h1>Noter</h1></li>
+		<li><h1>Notering</h1></li>
 		<!-- svelte-ignore a11y-invalid-attribute -->
 		<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
 	</nav>

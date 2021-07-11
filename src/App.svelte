@@ -2,11 +2,14 @@
 	window.onload = function() {
 		new Audio('https://res.cloudinary.com/odcloud/video/upload/v1625930644/notal.mp3_ycwskc.mp3').play()
 		document.querySelector("textarea").value = localStorage.getItem("note")
+		document.querySelector("textarea").removeAttribute("disabled")
 	}
+
 	function clear() {
-		document.querySelector("textarea").value = ""
-		localStorage.setItem("note", "")
+			document.querySelector("textarea").value = ""
+			localStorage.setItem("note", "")
 	}
+
 	function download() {
 		var data = document.querySelector("textarea").value.toString()
 		var a = document.querySelector("a#save");
@@ -14,6 +17,7 @@
 		a.href = URL.createObjectURL(file);
 		a.download = new Date().valueOf()+"_noter_notes.txt";
 	}
+
 </script>
 
 <main>
@@ -23,7 +27,7 @@
 		<!-- svelte-ignore a11y-invalid-attribute -->
 		<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
 	</nav>
-	<textarea name="" id="" 
+	<textarea disabled name="" id="" 
 	on:change={(event) => localStorage.setItem("note", event.target.value)}
 	></textarea>
 </main>

@@ -1,8 +1,10 @@
 <script>
 	window.onload = function() {
 		new Audio('https://res.cloudinary.com/odcloud/video/upload/v1625930644/notal.mp3_ycwskc.mp3').play()
-		document.querySelector("textarea").value = localStorage.getItem("note")
 		document.querySelector("textarea").removeAttribute("disabled")
+		if (localStorage.getItem("note").length > 0) {
+			document.querySelector("textarea").value = localStorage.getItem("note")
+		}
 	}
 
 	function clear() {
@@ -28,7 +30,7 @@
 		<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
 	</nav>
 	<textarea disabled name="" id="" 
-	on:change={(event) => localStorage.setItem("note", event.target.value)}
+		on:keyup={() => localStorage.setItem("note", document.querySelector("textarea").value)}
 	></textarea>
 </main>
 

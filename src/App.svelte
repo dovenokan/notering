@@ -23,19 +23,23 @@
 </script>
 
 <main>
-	<nav>
-		<li on:click={clear} class="func clear">Clear</li>
-		<li><h1>Notering</h1></li>
-		<!-- svelte-ignore a11y-invalid-attribute -->
-		<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
-	</nav>
-	<textarea disabled name="" id="" 
-		on:keyup={() => localStorage.setItem("note", document.querySelector("textarea").value)}
-	></textarea>
+	<div class="container">
+		<nav>
+			<li on:click={clear} class="func clear">Clear</li>
+			<li><h1>{"<Notering>"}</h1></li>
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
+		</nav>
+		<textarea disabled name="" id="" 
+			on:keyup={() => localStorage.setItem("note", document.querySelector("textarea").value)}
+		></textarea>
+	</div>
 </main>
 
 
 <style>
+	@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
+	
 	main {
 		text-align: center;
 		font-size: 4.2vh;
@@ -46,6 +50,7 @@
 		margin: 15px;
 		color: rgb(19, 19, 143);
 		font-weight: 500;
+		font-size: 4.2vh;
 	}
 
 	a, a:hover, a:visited{
@@ -63,19 +68,20 @@
 	}
 
 	nav{
-		background-color: rgba(4, 10, 41, 0.98);
-		height: 8vh;
+		background-color: rgba(0, 0, 0, 0.844);
+		height: 7.346vh;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
 	textarea{
+		margin-left: 18vh;
 		resize: none;
 		border: transparent;
-		width: 200vh;
-		height: 90vh;
-		background-color: rgb(11 4 37);
+		width: 150vh;
+		height: 92vh;
+		background-color: rgb(6, 4, 24);
 		color: whitesmoke;
 		font-size: 3vh;
 		font-weight: 400;

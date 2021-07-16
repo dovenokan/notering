@@ -23,68 +23,44 @@
 </script>
 
 <main>
-	<div class="container">
-		<nav>
-			<li on:click={clear} class="func clear">Clear</li>
-			<li><h1>{"<Notering>"}</h1></li>
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<li on:click={download} class="func download"><a href="" id="save">Download</a></li>
-		</nav>
-		<textarea disabled name="" id="" 
+		<div class="px-4 py-1 my-2 text-center">
+			<h1 class="display-6 fw-bold">Notering</h1>
+			<div class="col-lg-6 mx-auto">
+			  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+				<button on:click={clear} type="button" class="btn btn-danger btn-lg px-4 gap-3">Clear</button>
+				<button on:click={download} type="button" class="btn btn-success btn-lg px-4"><a href="" id="save">Download</a></button>
+			  </div>
+			</div>
+			<textarea class="my-2" disabled name="" id="" 
 			on:keyup={() => localStorage.setItem("note", document.querySelector("textarea").value)}
-		></textarea>
-	</div>
+			></textarea>
+		</div>
 </main>
 
 
 <style>
-	@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
 	
 	main {
 		text-align: center;
-		font-size: 4.2vh;
+		font-size: 3.2vh;
 	}
-
-	li{
-		list-style: none;
-		margin: 15px;
-		color: rgb(19, 19, 143);
-		font-weight: 500;
-		font-size: 4.2vh;
-	}
-
+	
 	a, a:hover, a:visited{
 		text-decoration: none;
 		color: inherit;
 	}	
 
-
-	.clear{
-		color: rgb(119, 18, 18);
-	}
-
-	.download{
-		color: rgb(6, 134, 25);
-	}
-
-	nav{
-		background-color: rgba(0, 0, 0, 0.844);
-		height: 7.346vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
 	textarea{
-		margin-left: 18vh;
 		resize: none;
 		border: transparent;
 		width: 150vh;
-		height: 92vh;
+		height: 75vh;
 		background-color: rgb(6, 4, 24);
 		color: whitesmoke;
+		border-radius: 5px;
 		font-size: 3vh;
 		font-weight: 400;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	}
+
 </style>

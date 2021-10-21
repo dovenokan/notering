@@ -53,8 +53,9 @@
 	textarea{
 		resize: none;
 		border: transparent;
-		width: 150vh;
+		width: 110vh;
 		height: 75vh;
+		margin: 0ch;
 		background-color: rgb(6, 4, 24);
 		color: whitesmoke;
 		border-radius: 5px;

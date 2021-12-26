@@ -23,11 +23,11 @@
 </script>
 
 <main>
-		<div class="px-4 py-1 my-2 text-center">
-			<h1 class="display-6 fw-bold">Notering</h1>
-			<div class="col-lg-6 mx-auto">
-			  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-				<button on:click={clear} type="button" class="btn btn-danger btn-lg px-4 gap-3">Clear</button>
+		<div class="xxxpx-4 xxxpy-1 my-2 text-primary">
+			<h1 class="display-6 fw-bold text-gray">Notering</h1>
+			<div class="buttons-area xxxcol-lg-6 mx-auto">
+			  <div class="xxxd-grid gap-2 xxxd-sm-flex justify-content-sm-center">
+				<button on:click={clear} type="button" class="btn btn-danger btn-lg xxxpx-4 gap-3">Clear</button>
 				<button on:click={download} type="button" class="btn btn-success btn-lg px-4"><a href="" id="save">Download</a></button>
 			  </div>
 			</div>
@@ -37,9 +37,7 @@
 		</div>
 </main>
 
-
 <style>
-	
 	main {
 		text-align: center;
 		font-size: 3.2vh;
@@ -50,11 +48,15 @@
 		color: inherit;
 	}	
 
+	.buttons-area{
+		/* background-color: red; */
+	}
+
 	textarea{
 		resize: none;
 		border: transparent;
-		width: 110vh;
-		height: 75vh;
+		width: 20rem;
+		height: 25em;
 		margin: 0ch;
 		background-color: rgb(6, 4, 24);
 		color: whitesmoke;
